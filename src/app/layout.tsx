@@ -44,7 +44,7 @@ export default function RootLayout({
         >
           <CartProvider cartPromise={getCartData()}>
             <Header />
-            {children}
+            <main className="dark:bg-teal-900/40 ">{children}</main>
             <Footer />
           </CartProvider>
         </ThemeProvider>

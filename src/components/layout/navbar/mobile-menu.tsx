@@ -1,11 +1,12 @@
 "use client";
 
 import { Menu } from "@/lib/shopify/types";
-import { Dialog, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+
 import Link from "next/link";
 import { Fragment, useState } from "react";
 import Search from "./search";
+import { Dialog } from "@radix-ui/react-dialog";
+import { MenuIcon } from "lucide-react";
 
 export default function MobileMenu({ menu }: { menu: Menu[] }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
         aria-label="Open mobile menu"
         className="flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors md:hidden dark:border-neutral-700 dark:text-white"
       >
-        <Bars3Icon className="h-4" />
+        <MenuIcon className="h-4" />
       </button>
 
       <Transition show={isOpen}>

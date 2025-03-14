@@ -1,10 +1,15 @@
 "use client";
 
-import { createUrl } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
+import { cn, createUrl } from "@/lib/utils";
 import { SearchIcon } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function Search() {
+interface SearchFieldProps {
+  className?: string;
+}
+
+export default function Search({ className }: SearchFieldProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -24,21 +29,18 @@ export default function Search() {
     router.push(createUrl("/search", newParams));
   }
   return (
-    <form
-      onSubmit={onSubmit}
-      className="w-max-[550px] relative w-full lg:w-80 xl:w-full"
-    >
-      <input
-        key={searchParams?.get("q")}
-        type="text"
-        name="search"
-        placeholder="Search for products..."
-        autoComplete="off"
-        defaultValue={searchParams?.get("q") || ""}
-        className="text-md w-full rounded-lg border bg-white px-4 py-2 text-black placeholder:text-neutral-500 md:text-sm dark:border-neutral-800 dark:bg-transparent dark:text-white dark:placeholder:text-neutral-400"
-      />
-      <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
-        <SearchIcon className="h-4" />
+    <form onSubmit={onSubmit} className={cn("grow", className)}>
+      <div className="relative">
+        <Input
+          key={searchParams?.get("q")}
+          type="text"
+          name="search"
+          placeholder="Search"
+          autoComplete="off"
+          defaultValue={searchParams?.get("q") || ""}
+          className="px-10"
+        />
+        <SearchIcon className="absolute right-3 top-1/2 size-5 -translate-y-1/2 transform text-muted-foreground" />
       </div>
     </form>
   );

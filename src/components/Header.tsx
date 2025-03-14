@@ -5,6 +5,7 @@ import { getMenu } from "@/lib/shopify";
 import Link from "next/link";
 import CartModal from "./cart/modal";
 import Search from "./layout/navbar/search";
+import MainNavigation from "./MainNavigation";
 
 export default async function Header() {
   const products = await getMenu("next-js-frontend-header-menu");
@@ -13,19 +14,13 @@ export default async function Header() {
   if (!products) return;
 
   return (
-    <header className="flex gap-5 justify-between pb-5 items-center px-7 py-5  top-0 w-full dark:bg-teal-900/40 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10">
+    <header className="flex gap-5 z-50 justify-between items-center px-7 py-5  top-0 w-full dark:bg-teal-900/40 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10">
       <Link href="/">
         <Logo />
       </Link>
-      <nav className="text-2xl gap-3 flex items-center">
-        {products.map((product) => (
-          <Link href={product.path} key={product.path}>
-            {product.title}
-          </Link>
-        ))}
-      </nav>
+      <MainNavigation collections={products} className="hidden lg:flex" />
       <div className="hidden justify-center md:flex md:w-1/3">
-        <Search />
+        <Search className="hidden max-w-96 lg:inline" />
       </div>
       <div className="flex justify-end md:w-1/3">
         <CartModal />

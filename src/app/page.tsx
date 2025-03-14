@@ -4,7 +4,7 @@ import React from "react";
 export default function Home() {
   return (
     <main className="min-h-dvh w-full flex flex-col items-center dark:text-white text-black dark:bg-teal-900/50">
-      <H1 className="my-3 gap-1 flex hover:cursor-pointer transition-all">
+      <H1 className="my-3 gap-1 flex hover:cursor-pointer transition-all  mt-10">
         <span className="text-teal-800 dark:text-cyan-500">{"<"}</span>
         <span className="text-teal-800 dark:text-teal-500 mr-2">BRANCODE</span>
         <span className="text-teal-800 dark:text-cyan-500">{"/>"}</span>
