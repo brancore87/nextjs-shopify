@@ -1,4 +1,4 @@
-import { Blockquote, H1, InlineCode, P } from "@/components/ui/Typography";
+import { Blockquote, H1, P } from "@/components/ui/Typography";
 import React from "react";
 
 export default function Home() {
