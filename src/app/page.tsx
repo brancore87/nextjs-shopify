@@ -1,4 +1,4 @@
-import { H1 } from "@/components/ui/Typography";
+import { Blockquote, H1, InlineCode, P } from "@/components/ui/Typography";
 import React from "react";
 
 export default function Home() {
@@ -9,6 +9,14 @@ export default function Home() {
         <span className="text-teal-500 mr-2">BRANCODE</span>
         <span className="text-cyan-500">{"/>"}</span>
       </H1>
+      <P className="text-2xl text-cyan-500">
+        The king, seeing how much happier his subjects were, realized the error
+        of his ways and repealed the joke tax.
+      </P>
+      <Blockquote className="text-2xl text-cyan-200">
+        "After all," he said, "everyone enjoys a good joke, so it's only fair
+        that they should pay for the privilege."
+      </Blockquote>
     </main>
   );
 }
