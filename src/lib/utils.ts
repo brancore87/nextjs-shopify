@@ -12,11 +12,12 @@ export function ensureStartWith(stringToCheck: string, startsWith: string) {
     : `${startsWith}${stringToCheck}`;
 }
 
-export async function createUrl(
+export function createUrl(
   pathname: string,
-  params: Promise<URLSearchParams | ReadonlyURLSearchParams>
+  // params: Promise<URLSearchParams | ReadonlyURLSearchParams>
+  params: URLSearchParams | ReadonlyURLSearchParams
 ) {
-  const paramsString = (await params).toString();
+  const paramsString = params.toString();
   const queryString = `${paramsString.length ? "?" : ""}${paramsString}`;
 
   return `${pathname}${queryString}`;

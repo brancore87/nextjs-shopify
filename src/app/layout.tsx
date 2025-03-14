@@ -5,7 +5,7 @@ import { ThemeProvider } from "next-themes";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/components/cart/cart-context";
-import { getCart, createCart } from "@/lib/shopify";
+import { getCart } from "@/lib/shopify";
 import { cookies } from "next/headers";
 
 const geistSans = Geist({
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 async function getCartData() {
-  const cartId = (await cookies()).get('cartId')?.value;
+  const cartId = (await cookies()).get("cartId")?.value;
   return getCart(cartId);
 }
 

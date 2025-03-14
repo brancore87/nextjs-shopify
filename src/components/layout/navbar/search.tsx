@@ -1,4 +1,5 @@
 "use client";
+
 import { createUrl } from "@/lib/utils";
 import { SearchIcon } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
